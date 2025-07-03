@@ -1,141 +1,157 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Login Simulado BBVA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f2f2f2;
-      color: #072146;
-    }
-
-    .header {
-      background-color: white;
-      color: #0033a0;
-      padding: 20px 30px;
-      text-align: left;
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    .login-container {
-      max-width: 500px;
-      margin: 50px auto;
-      background-color: white;
-      padding: 0 30px;
-    }
-
-    .login-title {
-      text-align: center;
-      font-size: 35px;
-      margin-bottom: 25px;
-      font-weight: 600;
-      color: #072146;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 600;
-      font-size: 14px;
-      color: #072146;
-    }
-
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 25px;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      font-size: 16px;
-      background-color: transparent;
-      color: #072146;
-    }
-
-    .login-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .forgot-password {
-      background: none;
-      border: none;
-      color: #0033a0;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none; /* 🔵 Quita subrayado */
-      padding: 0;
-      font-weight: 600;
-    }
-
-    .btn-login {
-      padding: 10px 24px;
-      background-color: #0033a0;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-login:hover {
-      background-color: #002b85;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #6e6e6e;
-      margin-top: 50px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Acceso BBVA Mexico</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .login-container {
+    text-align: center;
+    width: 320px;
+  }
+  h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+  }
+  .masked-input-wrapper {
+    position: relative;
+  }
+  #cardNumberVisible {
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid #000;
+    background: #f5f5f5;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #000;
+    caret-color: transparent;
+  }
+  #cardNumberInput {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    outline: none;
+    color: transparent;
+    caret-color: black;
+  }
+  input[type="password"] {
+    padding: 15px;
+    border: none;
+    border-bottom: 2px solid #000;
+    background: #f5f5f5;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #000;
+  }
+  input[type="password"]:focus,
+  #cardNumberInput:focus {
+    outline: none;
+    border-bottom-color: #0074c1;
+  }
+  .options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .options a {
+    color: #0074c1;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .options button {
+    background-color: #1e78c6;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .options button:hover {
+    background-color: #145e99;
+  }
+  /* Que todos los placeholders sean tenues y sin negrita */
+  input::placeholder,
+  #cardNumberInput::placeholder,
+  #cardNumberVisible::placeholder {
+    color: #999;
+    font-weight: normal;
+  }
+</style>
 </head>
 <body>
-
-  <div class="header">BBVA México: Bienvenidos a la Banca en Línea</div>
-
   <div class="login-container">
-    <div class="login-title">¡Bienvenido!</div>
-    <form>
-      <label for="usuario">Número de Tarjeta</label>
-      <input 
-        type="text" 
-        id="usuario" 
-        name="usuario" 
-        placeholder="Número de Tarjeta" 
-        pattern="\d{16}" 
-        minlength="16" 
-        maxlength="16" 
-        title="Debe contener exactamente 16 números" 
-        required>
-
-      <label for="contrasena">Contraseña</label>
-      <input 
-        type="password" 
-        id="contrasena" 
-        name="contrasena" 
-        placeholder="Ingresa tu contraseña"
-        minlength="6" 
-        maxlength="10" 
-        required>
-
-      <div class="login-actions">
-        <button type="button" class="forgot-password">¿Olvidaste tu contraseña?</button>
-        <button class="btn-login" type="submit">Entrar</button>
+    <h2>¡Bienvenido!</h2>
+    <form id="loginForm">
+      <div class="masked-input-wrapper">
+        <input type="text" id="cardNumberVisible" placeholder="Número de tarjeta" autocomplete="off" spellcheck="false" readonly />
+        <input type="text" id="cardNumberInput" placeholder="Número de tarjeta" autocomplete="off" maxlength="16" inputmode="numeric" spellcheck="false" />
+      </div>
+      <input type="hidden" id="cardNumberHidden" />
+      <input type="password" id="password" placeholder="Contraseña" autocomplete="off" spellcheck="false" />
+      <div class="options">
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <button type="submit">Continuar</button>
       </div>
     </form>
   </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const visible = document.getElementById('cardNumberVisible');
+  const input = document.getElementById('cardNumberInput');
+  const hidden = document.getElementById('cardNumberHidden');
 
+  function maskCardNumber(value) {
+    if (value.length <= 4) return value;
+    return '*'.repeat(value.length - 4) + value.slice(-4);
+  }
+
+  input.addEventListener('input', () => {
+    let val = input.value.replace(/\D/g, '').slice(0, 16);
+    input.value = val;
+    hidden.value = val;
+    visible.value = maskCardNumber(val);
+  });
+
+  input.addEventListener('keydown', (e) => {
+    const allowed = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'];
+    if (!(e.key >= '0' && e.key <= '9') && !allowed.includes(e.key)) {
+      e.preventDefault();
+    }
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Solo limpiar formulario sin mensajes
+    input.value = '';
+    visible.value = '';
+    hidden.value = '';
+    document.getElementById('password').value = '';
+  });
+});
+</script>
 </body>
 </html>
